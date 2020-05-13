@@ -2267,6 +2267,7 @@ var VirtuosoStore = function VirtuosoStore(_ref) {
       startIndex: startIndex,
       endIndex: endIndex
     });
+    endIndex = 5;
     return {
       startIndex: startIndex,
       endIndex: endIndex

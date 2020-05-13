@@ -105,7 +105,7 @@ const VirtuosoStore = ({
 
   const { followOutput$ } = followOutputEngine({ totalCount$, scrollToIndex$, scrolledToBottom$ })
 
-  const stickyItemsOffset$ = listOffset$.pipe(map((offset) => -offset))
+  const stickyItemsOffset$ = listOffset$.pipe(map(offset => -offset))
 
   const rangeChanged$ = coldSubject<ListRange>()
 
@@ -122,6 +122,7 @@ const VirtuosoStore = ({
           },
         ]) => {
           console.log('What to get', { startIndex, endIndex })
+          endIndex = 5
           return { startIndex, endIndex }
         }
       ),
@@ -136,7 +137,7 @@ const VirtuosoStore = ({
   })
 
   const MAX_OFFSET_HEIGHT = 15000000
-  const domTotalHeight$ = totalHeight$.pipe(map((value) => Math.min(value, MAX_OFFSET_HEIGHT)))
+  const domTotalHeight$ = totalHeight$.pipe(map(value => Math.min(value, MAX_OFFSET_HEIGHT)))
 
   const scrollTopMultiplier$ = combineLatest(totalHeight$, domTotalHeight$, viewportHeight$).pipe(
     map(
