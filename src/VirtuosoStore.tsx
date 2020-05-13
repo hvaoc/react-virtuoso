@@ -112,7 +112,10 @@ const VirtuosoStore = ({
   list$
     .pipe(
       withLatestFrom(adjustmentInProgress$),
-      filter<[ListItem[], boolean]>(([list, inProgress]) => list.length !== 0 && !inProgress),
+      filter<[ListItem[], boolean]>(([list, inProgress]) => {
+        console.log('This what I got', list)
+        return list.length !== 0 && !inProgress
+      }),
       map(
         ([
           {
@@ -122,7 +125,6 @@ const VirtuosoStore = ({
           },
         ]) => {
           console.log('What to get', { startIndex, endIndex })
-          endIndex = 5
           return { startIndex, endIndex }
         }
       ),
