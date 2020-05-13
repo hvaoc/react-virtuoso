@@ -2251,7 +2251,7 @@ var VirtuosoStore = function VirtuosoStore(_ref) {
   list$.pipe(withLatestFrom(adjustmentInProgress$), filter(function (_ref2) {
     var list = _ref2[0],
         inProgress = _ref2[1];
-    console.log('This what I got', list, adjustmentInProgress$);
+    console.log('This what I got', list, inProgress);
     return list.length !== 0 && !inProgress;
   }), map(function (_ref3) {
     var _ref3$ = _ref3[0],

@@ -115,7 +115,7 @@ const VirtuosoStore = ({
     .pipe(
       withLatestFrom(adjustmentInProgress$),
       filter<[ListItem[], boolean]>(([list, inProgress]) => {
-        console.log('This what I got', list, adjustmentInProgress$)
+        console.log('This what I got', list, inProgress)
         return list.length !== 0 && !inProgress
       }),
       map(
