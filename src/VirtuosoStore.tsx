@@ -109,13 +109,13 @@ const VirtuosoStore = ({
 
   const rangeChanged$ = coldSubject<ListRange>()
 
-  console.log('LIST', list$)
+  console.log('LIST', list$, adjustmentInProgress$)
 
   list$
     .pipe(
       withLatestFrom(adjustmentInProgress$),
       filter<[ListItem[], boolean]>(([list, inProgress]) => {
-        console.log('This what I got', list)
+        console.log('This what I got', list, adjustmentInProgress$)
         return list.length !== 0 && !inProgress
       }),
       map(

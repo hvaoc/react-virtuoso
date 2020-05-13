@@ -2247,11 +2247,11 @@ var VirtuosoStore = function VirtuosoStore(_ref) {
     return -offset;
   }));
   var rangeChanged$ = coldSubject();
-  console.log('LIST', list$);
+  console.log('LIST', list$, adjustmentInProgress$);
   list$.pipe(withLatestFrom(adjustmentInProgress$), filter(function (_ref2) {
     var list = _ref2[0],
         inProgress = _ref2[1];
-    console.log('This what I got', list);
+    console.log('This what I got', list, adjustmentInProgress$);
     return list.length !== 0 && !inProgress;
   }), map(function (_ref3) {
     var _ref3$ = _ref3[0],
