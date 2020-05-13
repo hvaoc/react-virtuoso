@@ -2254,7 +2254,7 @@ var VirtuosoStore = function VirtuosoStore(_ref) {
     return -offset;
   }));
   var rangeChanged$ = coldSubject();
-  console.log('LIST', list$, adjustmentInProgress$);
+  console.log('LIST', list$, adjustmentInProgress$, offsetList$);
   list$.pipe(withLatestFrom(adjustmentInProgress$), filter(function (_ref2) {
     var list = _ref2[0],
         inProgress = _ref2[1];
@@ -2271,7 +2271,7 @@ var VirtuosoStore = function VirtuosoStore(_ref) {
     });
     return {
       startIndex: startIndex,
-      endIndex: endIndex > 200 ? 224 : endIndex
+      endIndex: endIndex
     };
   }), duc(function (current, next) {
     return !current || current.startIndex !== next.startIndex || current.endIndex !== next.endIndex;

@@ -109,7 +109,7 @@ const VirtuosoStore = ({
 
   const rangeChanged$ = coldSubject<ListRange>()
 
-  console.log('LIST', list$, adjustmentInProgress$)
+  console.log('LIST', list$, adjustmentInProgress$, offsetList$)
 
   list$
     .pipe(
@@ -128,7 +128,7 @@ const VirtuosoStore = ({
         ]) => {
           console.log('What to get', { startIndex, endIndex })
 
-          return { startIndex, endIndex: endIndex > 200 ? 224 : endIndex }
+          return { startIndex, endIndex }
         }
       ),
       duc((current, next) => !current || current.startIndex !== next.startIndex || current.endIndex !== next.endIndex)
