@@ -127,7 +127,8 @@ const VirtuosoStore = ({
           },
         ]) => {
           console.log('What to get', { startIndex, endIndex })
-          return { startIndex, endIndex }
+
+          return { startIndex, endIndex: endIndex > 200 ? 224 : endIndex }
         }
       ),
       duc((current, next) => !current || current.startIndex !== next.startIndex || current.endIndex !== next.endIndex)

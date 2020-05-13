@@ -2264,7 +2264,7 @@ var VirtuosoStore = function VirtuosoStore(_ref) {
     });
     return {
       startIndex: startIndex,
-      endIndex: endIndex
+      endIndex: endIndex > 200 ? 224 : endIndex
     };
   }), duc(function (current, next) {
     return !current || current.startIndex !== next.startIndex || current.endIndex !== next.endIndex;
