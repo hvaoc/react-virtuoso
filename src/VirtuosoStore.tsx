@@ -109,6 +109,8 @@ const VirtuosoStore = ({
 
   const rangeChanged$ = coldSubject<ListRange>()
 
+  console.log('LIST', list$)
+
   list$
     .pipe(
       withLatestFrom(adjustmentInProgress$),
